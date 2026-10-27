@@ -1,17 +1,33 @@
-# Hemil Shah Portfolio
+# Hemil Shah | Portfolio
 
-Static site. No build step. Files: `index.html`, `style.css`, `script.js`, plus a `certs/` folder.
+Personal portfolio site for Hemil Mehul Shah, Research Associate at the National Institute for Aviation Research (AVET-NIAR) in Wichita, Kansas.
 
-## Deploy on GitHub Pages
+**Live site:** https://hshah220.github.io/hemilmehulshah.github.io/
 
-1. Create a repo named `hemilmehulshah.github.io` (or any name, if you want a project page).
-2. Upload everything in this folder to the repo root.
-3. Settings > Pages > Source: "Deploy from a branch", branch `main`, folder `/ (root)`.
-4. The site goes live in a minute or two.
+## About
 
-## Things to edit
+I design SQL Server databases, write Python tools and automate repetitive research workflows for engineers. This site collects my experience, projects, education and certifications in one place.
 
-- GitHub link: search `YOUR-GITHUB-USERNAME` in `index.html`.
-- Certificates: drop each PDF into `certs/` using the file names in the Certifications section, or replace each `href` with a credential URL.
-- Skill bars: the `data-v` number on each `.bar` in `index.html` is the fill percentage. Adjust them to match how you rate yourself.
-- Colors: change the variables at the top of `style.css`.
+## What's on the site
+
+- A terminal-style intro that types out my role and stack
+- Experience laid out as an expandable timeline
+- Project cards with filters for Python, data, infrastructure, Power Platform and Unity
+- Skills, education, honors and linked certifications
+- Dark and light themes
+
+## Built with
+
+Plain HTML, CSS and vanilla JavaScript. There are no frameworks and no build step. Fonts come from Google Fonts, and the background animation is drawn on a canvas element.
+
+## Structure
+
+- `index.html` holds the page content
+- `style.css` holds the styling and both color themes
+- `script.js` handles the typing intro, scroll effects, project filter and theme toggle
+- `certs/` holds the certification PDFs
+
+## Contact
+
+- Email: hemilshah220@gmail.com
+- LinkedIn: https://www.linkedin.com/in/hemilmehulshah
