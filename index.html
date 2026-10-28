@@ -351,26 +351,14 @@
     </section>
 
     <!-- CERTS -->
-    <section id="certs" class="wrap">
+        <section id="certs" class="wrap">
       <h2 class="sec-title reveal"><span>06</span> certifications</h2>
-      <div class="certs">
-        <!-- Replace each href with your PDF in /certs or a credential URL -->
-        <a class="cert reveal" href="certs/manage-models-in-ai-builder.pdf" target="_blank" rel="noopener">
-          <span class="cert-ico">AI</span><b>Manage models in AI Builder</b><small>Microsoft Learn</small><span class="open">view credential</span>
-        </a>
-        <a class="cert reveal" href="certs/identify-key-phrases-with-ai-builder.pdf" target="_blank" rel="noopener">
-          <span class="cert-ico">AI</span><b>Identify key phrases with AI Builder</b><small>Microsoft Learn</small><span class="open">view credential</span>
-        </a>
-        <a class="cert reveal" href="certs/analyze-sentiment-with-ai-builder.pdf" target="_blank" rel="noopener">
-          <span class="cert-ico">AI</span><b>Analyze the sentiment of text with AI Builder</b><small>Microsoft Learn</small><span class="open">view credential</span>
-        </a>
-        <a class="cert reveal" href="certs/customize-a-canvas-app-in-power-apps.pdf" target="_blank" rel="noopener">
-          <span class="cert-ico">PA</span><b>Customize a canvas app in Power Apps</b><small>Microsoft Learn</small><span class="open">view credential</span>
-        </a>
-        <a class="cert reveal" href="certs/write-your-first-csharp-code.pdf" target="_blank" rel="noopener">
-          <span class="cert-ico">C#</span><b>Write your first C# code</b><small>Microsoft Learn</small><span class="open">view credential</span>
-        </a>
+      <div class="cert-tools reveal">
+        <input id="certSearch" type="search" placeholder="search certificates" aria-label="Search certificates">
+        <div class="filters" id="certFilters" role="group" aria-label="Filter certificates"></div>
       </div>
+      <div class="certs" id="certGrid"></div>
+      <button class="btn" id="certMore" type="button" hidden>show all</button>
     </section>
 
     <!-- CONTACT -->
@@ -402,6 +390,7 @@
     <span class="mono">built with html, css and a little javascript</span>
   </footer>
 
+  <script src="certs-data.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

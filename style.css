@@ -244,3 +244,13 @@ h1 { font-size: clamp(2rem, 5.2vw, 3.6rem); line-height: 1.1; margin: 0 0 18px; 
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+.cert-tools { display: flex; flex-direction: column; gap: 14px; margin-bottom: 20px; }
+.cert-tools .filters { margin-bottom: 0; }
+#certSearch {
+  font: .9rem var(--mono); background: var(--card); color: var(--text);
+  border: 1px solid var(--line); border-radius: 10px; padding: 11px 14px; max-width: 340px;
+}
+#certSearch:focus { outline: none; border-color: var(--accent); }
+#certMore { margin-top: 18px; background: none; color: var(--text); cursor: pointer; }
+.cert b { font-size: 1rem; line-height: 1.35; }

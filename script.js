@@ -112,7 +112,7 @@
   });
 
   /* ---------- Project filter ---------- */
-  var chips = $$('.chip'), cards = $$('.proj');
+  var chips = $$('#projects .chip'), cards = $$('.proj');
   chips.forEach(function (chip) {
     chip.addEventListener('click', function () {
       var f = chip.getAttribute('data-filter');
@@ -150,4 +150,56 @@
   }
   size(); draw();
   var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { size(); if (reduce) draw(); }, 150); });
+    /* ---------- Certificates ---------- */
+  function initCerts() {
+    var data = window.CERTS || [];
+    var grid = $('#certGrid'), filters = $('#certFilters'), search = $('#certSearch'), more = $('#certMore');
+    if (!grid || !data.length) return;
+    var LIMIT = 12, group = 'all', q = '', expanded = false;
+    var groups = [];
+    data.forEach(function (c) { if (groups.indexOf(c.g) < 0) groups.push(c.g); });
+
+    function addChip(label, key, count) {
+      var b = document.createElement('button');
+      b.className = 'chip' + (key === 'all' ? ' active' : '');
+      b.type = 'button';
+      b.textContent = label + ' (' + count + ')';
+      b.addEventListener('click', function () {
+        group = key; expanded = false;
+        $$('.chip', filters).forEach(function (c) { c.classList.toggle('active', c === b); });
+        render();
+      });
+      filters.appendChild(b);
+    }
+    addChip('all', 'all', data.length);
+    groups.forEach(function (g) {
+      addChip(g, g, data.filter(function (c) { return c.g === g; }).length);
+    });
+
+    function render() {
+      var list = data.filter(function (c) {
+        return (group === 'all' || c.g === group) && (c.t + ' ' + c.g).toLowerCase().indexOf(q) > -1;
+      });
+      var shown = (expanded || q) ? list : list.slice(0, LIMIT);
+      grid.innerHTML = '';
+      shown.forEach(function (c) {
+        var a = document.createElement('a');
+        a.className = 'cert in';
+        a.href = encodeURI(c.f);
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.innerHTML = '<span class="cert-ico"></span><b></b><small></small><span class="open">view credential</span>';
+        a.children[0].textContent = c.g.slice(0, 2).toUpperCase();
+        a.children[1].textContent = c.t;
+        a.children[2].textContent = c.g;
+        grid.appendChild(a);
+      });
+      more.hidden = !!q || list.length <= LIMIT;
+      more.textContent = expanded ? 'show fewer' : 'show all ' + list.length;
+    }
+    search.addEventListener('input', function () { q = search.value.trim().toLowerCase(); render(); });
+    more.addEventListener('click', function () { expanded = !expanded; render(); });
+    render();
+  }
+  initCerts();
 })();
